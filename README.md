@@ -64,20 +64,21 @@ While loops begin with the keyword `as`, followed by `( <coin> )`, then a `dialo
 ##### Other Symbols
 | Token | Symbol | Regex |
 | --- | --- | --- |
-| BECOMES | = | = |
+| OBTAINS | = | = |
 | BEGIN | { | { |
 | END | } | } |
 ## Part B
 ```
-<Book> --> open <dialogue> close
-<dialogue> --> <ifst> | <whlp> | <ast> | <optionst> | <flp> | <story>
+<Book> --> open <story> close
+<dialogue> --> <ifst> | <whlp> | <ast> | <optionst> | <flp> | <decs> | <story>
 <story> --> "{" { <dialogue> ";" } "}"
-<ifst> --> "hmm" "(" <coin> ")" <dialogue> [ "huh" <dialogue> ]
-<flp> --> "since" "( <ast> ";" <coin> ";" <purpose> )" <dialogue>
+<ifst> --> "hmm" "(" <coin> ")" <story> [ "huh" <story> ]
+<flp> --> "since" "( <ast> ";" <coin> ";" <purpose> )" <story>
 <whlp> --> "as" "(" <coin> ")" <dialogue>
 <ast> --> "me" "=" <purpose>
+<decs> --> <group> "me" ":"
 <option> --> <option> <me> ":" <dialogue> ";"
-<optionst> --> "options" "("<purpose>")" "{" <option>
+<optionst> --> "options" "("<purpose>")" "{" <option> <story> "}"
 <name> --> <group> <me> ";" | <group> <ast> ";"
 <me> --> <let> | "_" <let>
 <let> --> [a-zA-Z_]{6,8}
