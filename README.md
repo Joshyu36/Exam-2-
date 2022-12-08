@@ -61,3 +61,7 @@ T --> T - F
 T --> T % F
 F --> (E)
 ```
+## Part C
+Is an LL(1) grammar when reading rule set from left to right
+## Part D
+Rule set is nonambiguous
