@@ -23,8 +23,50 @@ Includes for loops `<flp>` and while loops `<whlp>`
 For loops begin with the keyword `since` then followed by `( <ast> ";" <coin> ";" <purpose> )` and then a `dialogue`. This will run until the `<coin>` is false.
 
 While loops begin with the keyword `as`, followed by `( <coin> )`, then a `dialogue`. This will run until the `<coin>` is false.
-#### Math Expressions
-
+#### Tokens
+##### Math Operators
+| Token | Symbol | Regex |
+| --- | --- | --- |
+| ADDING | + | + |
+| SUBTRACTING | - | - |
+| MULTIPLYING | * | * |
+| DIVIDING | / | / |
+| OPENP | ( | ( |
+| CLOSEP | ) | ) |
+##### Comparison Operators
+| Token | Symbol | Regex |
+| --- | --- | --- |
+| LT | < | < |
+| GT | > | > |
+| LTE | <= | <= |
+| GTE | >= | >= |
+| DMATCH | == | == |
+| NMATCH | != | != |
+##### Integer Space Size
+| Token | Condition | Regex | Size
+| --- | --- | --- | --- |
+| NUMONEB | -128 <= num <= 127 | \d{1,3} | 1 Byte |
+| NUMTWOB | -32768 <= num <= 32767 | \d{1,5} | 2 Bytes |
+| NUMFORB | 	-2147483648 <= num <= 2147483647 | \d{1,10} | 4 Bytes |
+| NUMATEB | -9223372036854775808 <= num <= 9223372036854775808 | \d{1,19} | 8 Bytes |
+##### Keywords
+| Token | Regex |
+| --- | --- |
+| ME | [a-zA-Z]{6,8} |
+| HMM | hmm |
+| HUH | huh |
+| SINCE | since |
+| AS | as |
+| OPTIONS | options |
+| OPTION | option |
+| OPEN | open |
+| CLOSE | close |
+##### Other Symbols
+| Token | Symbol | Regex |
+| --- | --- | --- |
+| BECOMES | = | = |
+| BEGIN | { | { |
+| END | } | } |
 ## Part B
 ```
 <Book> --> open <dialogue> close
